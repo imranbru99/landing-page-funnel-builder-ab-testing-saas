@@ -1,0 +1,2276 @@
+# MASTER DEVELOPMENT PROMPT
+# Landing Page and Funnel Builder – Complete SaaS Business Platform
+
+## 1. PROJECT OVERVIEW
+
+Act as a world-class SaaS software architect, senior Laravel developer, Filament specialist, UI/UX designer, database architect, conversion optimization engineer, and DevOps engineer.
+
+Your task is to build a complete, production-ready, enterprise-grade SaaS application.
+
+**Application Name:** Landing Page and Funnel Builder  
+**Application Category:** SaaS / Marketing Automation / Conversion Optimization  
+**Primary Purpose:** Create landing pages, build sales funnels, run A/B experiments, capture leads, analyze customer behavior, and optimize conversions.
+
+This must be a complete business solution, not merely a landing-page editor or an attractive dashboard.
+
+Our goal is to build a competitive international SaaS product that agencies, digital marketers, entrepreneurs, e-commerce businesses, consultants, startups, and enterprises can use to manage their entire landing-page and conversion optimization operations.
+
+The application must support:
+
+- Multiple organizations and workspaces.
+- Multiple users with different roles and permissions.
+- Multiple projects, brands, websites, landing pages, and funnels.
+- Drag-and-drop page building.
+- Visual sales funnel creation.
+- A/B and multivariate testing.
+- Conversion tracking and analytics.
+- Lead management and CRM.
+- Marketing automation.
+- AI-powered content generation.
+- Subscription and billing management.
+- Custom domains and white-label capabilities.
+- Modular features that can be activated or deactivated.
+
+**Most important requirement:** Every major feature must work independently as a module. Platform administrators must be able to enable or disable modules globally, while individual organizations must be able to activate or deactivate the modules included in their subscription.
+
+Do not build everything into one tightly coupled system.
+
+---
+
+# 2. TECHNOLOGY STACK
+
+Use the following technology stack.
+
+### Backend
+- PHP 8.3+
+- Laravel 12 (verify dependency compatibility before installation).
+- MySQL 8+.
+- Redis for caching, queues, and background processing.
+- Laravel Queue and Scheduler.
+- REST API architecture.
+- Laravel Events, Listeners, Notifications, Policies, and Middleware.
+
+### Administration
+- Filament Admin Panel.
+- Filament Resources, Pages, Widgets, Forms, Tables, Actions, and Custom Components.
+- Role-based access control.
+- Separate platform administration and tenant administration.
+
+Prefer Filament 3.x if required by the selected attendance integration. Verify all dependency constraints using Composer.
+
+### Frontend
+- Blade.
+- Livewire.
+- Alpine.js.
+- Tailwind CSS.
+- JavaScript/TypeScript for interactive page-building functionality.
+- Responsive design.
+- Modern component-based architecture.
+
+Use a dedicated visual page editor that integrates cleanly with Laravel. Evaluate suitable drag-and-drop libraries before selecting one.
+
+### Infrastructure
+- Redis.
+- Queue workers.
+- S3-compatible object storage.
+- Cloudflare-compatible domain and DNS integration.
+- CDN-ready static assets.
+- Automated database backups.
+- Docker-based local development where practical.
+
+Do not introduce unnecessary dependencies.
+
+---
+
+# 3. REQUIRED PACKAGES
+
+Use and properly integrate the following packages wherever appropriate.
+
+### 3.1 Laravel Drutogoti – Performance Optimization
+
+https://packagist.org/packages/imrandevbd/drutogoti
+
+Composer package:
+
+`imrandevbd/drutogoti`
+
+Purpose:
+- Detect N+1 database queries.
+- Identify slow database queries.
+- Monitor cache hits and misses.
+- Detect performance bottlenecks.
+- Monitor oversized cookies and headers.
+- Identify unoptimized image assets.
+- Generate optimization recommendations.
+
+Integrate performance monitoring into the development and production architecture.
+
+Ensure diagnostic information is available only to authorized administrators.
+
+### 3.2 Laravel Admin Panel
+
+https://packagist.org/packages/imrandevbd/laravel-admin-panel
+
+Composer package:
+
+`imrandevbd/laravel-admin-panel`
+
+Evaluate this package for:
+- Administrative dashboard capabilities.
+- RBAC.
+- CRUD functionality.
+- Audit logs.
+- Media management.
+- Widgets.
+- API functionality.
+- Multi-tenancy.
+
+Important: This package is presented as an alternative to Filament. Our required primary administration interface is Filament. Do not introduce two competing administration systems or duplicate permission systems.
+
+Integrate non-conflicting capabilities only if technically appropriate. If it cannot coexist cleanly with Filament, document the incompatibility and retain Filament as the primary administration framework.
+
+### 3.3 Laravel AI Catalog
+
+https://packagist.org/packages/imrandevbd/laravel-ai-catalog
+
+Composer package:
+
+`imrandevbd/laravel-ai-catalog`
+
+Use it as an optional AI-powered product catalog and content-import integration.
+
+Potential applications:
+- Import product information from authorized URLs.
+- Generate product descriptions.
+- Import spreadsheet data.
+- Generate SEO-friendly product content.
+- Generate product FAQs.
+- Generate localized content.
+- Review and approve AI-generated information.
+
+Allow users to create product-based landing pages using imported catalog information.
+
+Never publish AI-generated information without the appropriate approval workflow.
+
+### 3.4 Laravel AI Hub
+
+https://packagist.org/packages/imrandevbd/laravel-ai-hub
+
+Composer package:
+
+`imrandevbd/laravel-ai-hub`
+
+This is the primary AI integration layer.
+
+Implement:
+- AI landing-page content generation.
+- AI headline generation.
+- AI CTA suggestions.
+- AI sales copywriting.
+- AI SEO optimization.
+- AI funnel recommendations.
+- AI A/B variant generation.
+- AI email copy generation.
+- AI form optimization suggestions.
+- AI performance analysis.
+- AI campaign summaries.
+- AI content rewriting.
+- AI multilingual translation.
+
+Support configurable AI providers and models.
+
+Administrators must be able to:
+- Configure AI providers.
+- Manage API credentials securely.
+- Select default models.
+- Configure fallback providers.
+- Set usage limits.
+- Monitor token consumption.
+- Monitor AI expenses.
+- Configure per-plan AI allowances.
+
+AI must be modular and must never be required for the application to operate.
+
+### 3.5 Laravel Attendance Hub
+
+https://packagist.org/packages/imrandevbd/laravel-attendance-hub
+
+Composer package:
+
+`imrandevbd/laravel-attendance-hub`
+
+This is not a core marketing feature.
+
+Implement it as an optional internal platform staff attendance module, disabled by default.
+
+If activated, it should support:
+- Staff attendance.
+- Device management.
+- Attendance synchronization.
+- Shift management.
+- Attendance reports.
+- Device connection monitoring.
+
+Do not expose attendance functionality to ordinary marketing customers unless an appropriate organization-level use case is enabled.
+
+### 3.6 Laravel Unicode PDF
+
+https://packagist.org/packages/imrandevbd/laravel-unicode-pdf
+
+Composer package:
+
+`imrandevbd/laravel-unicode-pdf`
+
+Use it for:
+- Analytics report PDFs.
+- Campaign reports.
+- Funnel performance reports.
+- A/B testing reports.
+- Lead export reports.
+- Subscription invoices.
+- Business reports.
+- Multilingual documents.
+
+Support Bengali, English, Arabic, Hindi, Chinese, and other Unicode languages supported by the package.
+
+Ensure correct RTL text rendering where applicable.
+
+### 3.7 Laravel Universal Slug
+
+https://packagist.org/packages/imrandevbd/laravel-universal-slug
+
+Composer package:
+
+`imrandevbd/laravel-universal-slug`
+
+Use it for:
+- Landing-page URLs.
+- Funnel URLs.
+- Campaign URLs.
+- Blog URLs.
+- Template URLs.
+- Multilingual slugs.
+- SEO-friendly URLs.
+
+Support Unicode slugs and prevent duplicate URLs within the appropriate tenant and locale.
+
+Preserve old URLs through appropriate redirect management when slugs change.
+
+### Dependency Rules
+
+Before installing these packages:
+
+1. Inspect their latest README files.
+2. Verify Laravel and PHP compatibility.
+3. Check Filament compatibility.
+4. Resolve conflicting dependencies.
+5. Use stable tagged releases where available.
+6. Do not blindly install development branches in production.
+7. Document packages that cannot be safely integrated.
+
+Create a package integration document in `docs/PACKAGE-INTEGRATION.md`.
+
+---
+
+# 4. MULTI-TENANT SAAS ARCHITECTURE
+
+Build the entire platform using a proper multi-tenant architecture.
+
+The platform must support thousands of independent organizations without exposing one organization's data to another.
+
+### Tenant structure
+
+Platform
+- Organizations
+  - Workspaces
+    - Projects
+      - Websites
+      - Landing Pages
+      - Funnels
+      - Campaigns
+      - Experiments
+      - Leads
+      - Analytics
+
+An organization can have multiple workspaces.
+
+A workspace can have multiple projects.
+
+A project can have multiple landing pages and funnels.
+
+### Organization management
+
+Each organization should have:
+
+- Organization name.
+- Logo.
+- Brand colors.
+- Business details.
+- Timezone.
+- Default language.
+- Currency.
+- Subscription.
+- Billing information.
+- Team members.
+- Roles.
+- Permissions.
+- Usage statistics.
+- Integration settings.
+- Custom domains.
+
+### Agency functionality
+
+Allow agencies to:
+
+- Create multiple client workspaces.
+- Manage multiple client websites.
+- Invite clients.
+- Assign individual permissions.
+- Share reports.
+- Manage client projects.
+- White-label client-facing reports.
+- Manage multiple brands.
+
+Implement strict tenant isolation using policies, middleware, scoped queries, and database constraints.
+
+Write automated tests proving that one tenant cannot access another tenant's information.
+
+---
+
+# 5. USER TYPES AND ROLE MANAGEMENT
+
+Implement a flexible multi-user architecture.
+
+### Platform-level roles
+
+1. Super Administrator.
+2. Platform Administrator.
+3. Technical Administrator.
+4. Support Agent.
+5. Billing Administrator.
+6. Content Administrator.
+7. Platform Analyst.
+
+### Organization-level roles
+
+1. Organization Owner.
+2. Organization Administrator.
+3. Agency Manager.
+4. Workspace Manager.
+5. Marketing Manager.
+6. Landing Page Designer.
+7. Funnel Builder.
+8. Content Editor.
+9. Campaign Manager.
+10. Analyst.
+11. Client.
+12. Viewer.
+13. Developer.
+
+Allow custom roles.
+
+Each role must have configurable permissions.
+
+Examples:
+
+- Create pages.
+- Edit pages.
+- Publish pages.
+- Delete pages.
+- Create funnels.
+- Manage experiments.
+- View analytics.
+- Export reports.
+- Manage integrations.
+- Invite users.
+- Manage billing.
+
+Use Laravel Policies and Gates for authorization.
+
+A user must never receive permissions simply because a frontend button is hidden.
+
+---
+
+# 6. MAIN APPLICATION MODULES
+
+Build the following modules as independent, configurable business modules.
+
+## MODULE 1: LANDING PAGE BUILDER
+
+This is the core feature.
+
+Develop a professional visual drag-and-drop page builder.
+
+### Page editor
+
+Users should be able to:
+
+- Create new landing pages.
+- Start from blank pages.
+- Select prebuilt templates.
+- Drag and drop sections.
+- Add components.
+- Edit text inline.
+- Upload images.
+- Add videos.
+- Add buttons.
+- Add forms.
+- Add custom styling.
+- Configure spacing.
+- Configure typography.
+- Configure colors.
+- Configure backgrounds.
+- Configure responsive layouts.
+- Preview pages.
+- Save drafts.
+- Publish pages.
+- Duplicate pages.
+- Archive pages.
+- Restore previous versions.
+
+### Component library
+
+Create reusable components:
+
+- Navigation bars.
+- Hero sections.
+- Headlines.
+- Subheadings.
+- Text blocks.
+- Images.
+- Video sections.
+- Background videos.
+- CTA buttons.
+- Feature sections.
+- Benefits sections.
+- Testimonials.
+- Reviews.
+- Pricing tables.
+- Comparison tables.
+- Statistics.
+- Counters.
+- FAQs.
+- Team sections.
+- Contact sections.
+- Lead forms.
+- Newsletter forms.
+- Countdown timers.
+- Product sections.
+- Trust badges.
+- Social proof.
+- Footer sections.
+- Custom HTML blocks with strict sanitization.
+
+### Advanced editor features
+
+- Desktop preview.
+- Tablet preview.
+- Mobile preview.
+- Undo and redo.
+- Copy and paste.
+- Section duplication.
+- Global styles.
+- Reusable components.
+- Save reusable sections.
+- Auto-save.
+- Version history.
+- Page restoration.
+- Element locking.
+- Layer management.
+- Responsive controls.
+- Keyboard shortcuts.
+
+### Publishing
+
+Allow publishing through:
+
+- Platform subdomains.
+- Custom domains.
+- Custom paths.
+- Existing websites through supported embedding methods.
+
+Implement:
+- Domain verification.
+- DNS instructions.
+- SSL status monitoring.
+- Canonical URLs.
+- SEO metadata.
+- Social sharing previews.
+- Sitemap support.
+- Robots directives.
+
+Published pages must remain accessible independently of the administrative dashboard.
+
+Never execute arbitrary tenant-provided PHP or Blade code. Sanitize user-generated HTML and CSS, apply content security policies, and isolate custom scripts behind safe, authorized controls.
+
+---
+
+## MODULE 2: WEBSITE AND MULTI-PAGE BUILDER
+
+Allow users to build complete marketing websites.
+
+Features:
+
+- Multiple website projects.
+- Multi-page websites.
+- Navigation management.
+- Header and footer builder.
+- Global sections.
+- Website themes.
+- Blog integration.
+- Custom URL structures.
+- SEO settings.
+- Responsive design.
+- Website publishing.
+- Domain mapping.
+- Website versioning.
+
+Allow users to manage a complete website and its landing pages from one dashboard.
+
+---
+
+## MODULE 3: SALES FUNNEL BUILDER
+
+Create a visual funnel-building interface.
+
+Users should be able to construct funnels through connected nodes and steps.
+
+### Funnel step types
+
+- Landing page.
+- Lead capture page.
+- Registration page.
+- Product page.
+- Sales page.
+- Checkout page.
+- Payment confirmation.
+- Thank-you page.
+- Upsell page.
+- Downsell page.
+- Webinar registration.
+- Webinar confirmation.
+- Appointment booking.
+- Email automation.
+- External redirect.
+- Conditional branch.
+- Webhook action.
+
+### Funnel functionality
+
+- Visual drag-and-drop flow editor.
+- Connect funnel steps.
+- Define conditional paths.
+- Set entry points.
+- Track visitor progression.
+- Monitor step conversions.
+- Monitor drop-offs.
+- Track revenue where supported.
+- Duplicate funnels.
+- Create funnel templates.
+- Preview entire funnels.
+- Publish funnels.
+- Version control.
+
+Show a visual funnel performance report.
+
+Example:
+
+Visitors → Landing Page → Lead Form → Sales Page → Checkout → Purchase
+
+Display visitor counts and conversion percentages at each stage.
+
+---
+
+## MODULE 4: A/B TESTING AND EXPERIMENT MANAGEMENT
+
+This is one of the most important modules.
+
+Implement a complete experimentation engine.
+
+### Experiment creation
+
+Users can create experiments for:
+
+- Headlines.
+- Subheadings.
+- CTA text.
+- CTA colors.
+- Images.
+- Hero sections.
+- Page layouts.
+- Pricing sections.
+- Forms.
+- Page designs.
+- Complete landing pages.
+
+### Variants
+
+Support:
+
+- Original version.
+- Variant A.
+- Variant B.
+- Additional variants.
+
+Allow users to configure traffic allocation.
+
+Example:
+
+- Original: 50%.
+- Variant A: 25%.
+- Variant B: 25%.
+
+### Experiment metrics
+
+Track:
+
+- Unique visitors.
+- Page views.
+- CTA clicks.
+- Form submissions.
+- Leads generated.
+- Purchases.
+- Conversion rate.
+- Revenue per visitor.
+- Bounce rate.
+- Funnel completion.
+
+### Experiment reporting
+
+Display:
+
+- Performance comparison.
+- Conversion differences.
+- Relative improvement.
+- Confidence or posterior probability.
+- Sample size.
+- Experiment duration.
+- Statistical methodology.
+- Recommended next steps.
+
+Do not declare a winning variant solely because it temporarily has a higher conversion rate.
+
+Implement appropriate sample-size guidance, minimum observation periods, bot filtering, and statistically responsible winner recommendations.
+
+### Technical requirements
+
+- Stable visitor-to-variant assignment.
+- First-party assignment persistence.
+- Server-side experiment allocation where appropriate.
+- Accurate event attribution.
+- Duplicate event protection.
+- Experiment start and end dates.
+- Automatic or manual winner selection.
+- Winner deployment.
+- Experiment history.
+
+Build automated tests for variant allocation and conversion calculations.
+
+---
+
+## MODULE 5: ANALYTICS AND CONVERSION TRACKING
+
+Develop a powerful analytics dashboard.
+
+### Dashboard metrics
+
+- Total visitors.
+- Unique visitors.
+- Page views.
+- Leads.
+- Conversions.
+- Conversion rate.
+- Revenue.
+- Average session duration.
+- Bounce rate.
+- CTA clicks.
+- Form submissions.
+
+### Analytics dimensions
+
+- Landing page.
+- Funnel.
+- Campaign.
+- Traffic source.
+- UTM source.
+- UTM medium.
+- UTM campaign.
+- Device category.
+- Browser.
+- Country or region at an appropriate privacy-preserving level.
+- Date range.
+- Experiment variant.
+
+### Reports
+
+- Landing-page performance.
+- Funnel performance.
+- Campaign performance.
+- Conversion reports.
+- Traffic-source reports.
+- Device reports.
+- A/B experiment reports.
+- Lead-generation reports.
+
+### Visualization
+
+Use clear charts:
+
+- Line charts.
+- Bar charts.
+- Area charts.
+- Funnel diagrams.
+- Conversion comparison charts.
+- Traffic-source charts.
+- Campaign comparison tables.
+
+Allow CSV and PDF exports.
+
+Build privacy-conscious analytics with configurable retention, IP anonymization, consent controls, and no invasive fingerprinting.
+
+---
+
+## MODULE 6: LEAD MANAGEMENT AND MINI CRM
+
+Develop a complete lead-management system.
+
+### Lead capture
+
+Support:
+- Landing-page forms.
+- Embedded forms.
+- Popup forms.
+- Newsletter subscriptions.
+- Registration forms.
+- Contact forms.
+- Appointment requests.
+- Custom forms.
+
+### Contact management
+
+Each contact should contain:
+
+- Name.
+- Email.
+- Phone.
+- Company.
+- Source.
+- Campaign.
+- Tags.
+- Custom fields.
+- Consent status.
+- Creation date.
+- Activity history.
+
+### CRM functionality
+
+- Lead lists.
+- Lead segmentation.
+- Lead scoring.
+- Lead assignment.
+- Lead status.
+- Notes.
+- Follow-up reminders.
+- Custom fields.
+- Duplicate detection.
+- CSV import.
+- CSV export.
+- Search and filtering.
+
+### Lead pipeline
+
+Example:
+
+New → Contacted → Qualified → Proposal → Converted → Lost
+
+Allow custom pipelines and stages.
+
+Support unsubscribe management and consent records.
+
+---
+
+## MODULE 7: MARKETING AUTOMATION
+
+Build a visual workflow automation engine.
+
+### Trigger events
+
+- New lead.
+- Form submitted.
+- Page visited.
+- CTA clicked.
+- Funnel step completed.
+- Purchase completed.
+- Tag added.
+- Contact updated.
+- Experiment conversion.
+- Webhook received.
+
+### Actions
+
+- Add tag.
+- Remove tag.
+- Update contact.
+- Assign lead.
+- Send email.
+- Send webhook.
+- Notify administrator.
+- Move pipeline stage.
+- Start another workflow.
+- Add a delay.
+- Apply conditional logic.
+
+### Workflow builder
+
+Implement:
+
+- Visual workflow editor.
+- Trigger configuration.
+- Conditional branches.
+- Delay nodes.
+- Action nodes.
+- Execution history.
+- Failed-job handling.
+- Retry functionality.
+- Workflow enable/disable.
+- Automation analytics.
+
+Do not send emails without a properly configured email provider and applicable consent.
+
+---
+
+## MODULE 8: POPUP AND FORM BUILDER
+
+Build an independent form and popup editor.
+
+### Form types
+
+- Inline forms.
+- Popup forms.
+- Exit-intent forms.
+- Floating forms.
+- Multi-step forms.
+- Newsletter forms.
+- Lead-generation forms.
+- Contact forms.
+- Custom forms.
+
+### Form controls
+
+- Text.
+- Email.
+- Phone.
+- Number.
+- Dropdown.
+- Radio.
+- Checkbox.
+- Textarea.
+- File upload.
+- Date.
+- Hidden fields.
+
+### Features
+
+- Drag-and-drop form builder.
+- Required-field configuration.
+- Validation.
+- Conditional fields.
+- Thank-you messages.
+- Redirect after submission.
+- Spam protection.
+- Submission history.
+- Form analytics.
+- CRM integration.
+
+---
+
+## MODULE 9: TEMPLATE MARKETPLACE
+
+Create a professional template library.
+
+### Template categories
+
+- SaaS.
+- Software.
+- E-commerce.
+- Digital products.
+- Education.
+- Online courses.
+- Coaching.
+- Consulting.
+- Agency.
+- Real estate.
+- Events.
+- Webinars.
+- Restaurants.
+- Healthcare.
+- Finance.
+- Personal brands.
+- Lead generation.
+- Product launches.
+
+### Features
+
+- Template gallery.
+- Search.
+- Categories.
+- Preview.
+- Template details.
+- Template duplication.
+- Favorite templates.
+- User-created templates.
+- Private templates.
+- Public marketplace.
+- Template approval.
+- Template ratings.
+
+Allow administrators to create and publish official templates.
+
+---
+
+## MODULE 10: AI MARKETING ASSISTANT
+
+Integrate Laravel AI Hub.
+
+Create a dedicated AI assistant for marketing and conversion optimization.
+
+### AI tools
+
+1. Landing-page copy generator.
+2. Headline generator.
+3. CTA generator.
+4. Sales-page writer.
+5. Product description generator.
+6. SEO title generator.
+7. Meta description generator.
+8. FAQ generator.
+9. Email campaign writer.
+10. Funnel strategy assistant.
+11. A/B testing idea generator.
+12. Conversion improvement assistant.
+13. Content rewriting.
+14. Multilingual translation.
+15. Marketing report summarizer.
+
+### AI page generation
+
+Allow users to describe their business and marketing goals.
+
+Example:
+
+"I run an online clothing store. I want a landing page for a new product launch targeting young customers."
+
+The AI should generate a structured landing-page draft containing:
+
+- Page sections.
+- Headlines.
+- Subheadings.
+- Product benefits.
+- CTA text.
+- Social proof placeholders.
+- FAQs.
+- SEO metadata.
+
+The result must be editable using the visual page builder.
+
+AI-generated content must be saved as a draft until approved.
+
+### AI usage management
+
+- Usage tracking.
+- Token tracking.
+- Cost tracking.
+- Plan-based limits.
+- Admin-configurable quotas.
+- Provider selection.
+- Model selection.
+- Error logs.
+
+---
+
+## MODULE 11: SEO MANAGEMENT
+
+Implement comprehensive SEO tools.
+
+Features:
+
+- Page title.
+- Meta description.
+- Canonical URL.
+- Open Graph metadata.
+- Social sharing image.
+- Structured data.
+- Sitemap.
+- Robots settings.
+- Multilingual URLs.
+- Redirect management.
+- SEO preview.
+- Image alt text.
+- Heading hierarchy.
+- SEO checklist.
+- Indexing status where integrations permit.
+
+Use the Universal Slug package for multilingual URL management.
+
+---
+
+## MODULE 12: DOMAIN MANAGEMENT
+
+Allow organizations to connect their own domains.
+
+Features:
+
+- Default platform subdomains.
+- Custom domains.
+- Domain verification.
+- DNS configuration instructions.
+- CNAME verification.
+- TXT verification.
+- SSL monitoring.
+- Primary domain selection.
+- Redirect management.
+- Domain removal.
+- Domain ownership protection.
+
+Prevent one tenant from claiming another tenant's verified domain.
+
+---
+
+## MODULE 13: INTEGRATIONS AND API
+
+Develop an integration center.
+
+### Marketing integrations
+
+Create configurable integration adapters for:
+
+- Google Analytics 4.
+- Google Tag Manager.
+- Meta Pixel.
+- Google Ads conversion tracking.
+- TikTok Pixel.
+- LinkedIn Insight Tag.
+- Mailchimp.
+- HubSpot.
+- Brevo.
+- ActiveCampaign.
+- Zapier.
+- Make.
+- Calendly.
+
+### API
+
+Build a documented REST API.
+
+Support:
+
+- API authentication.
+- API keys.
+- Scoped permissions.
+- Rate limiting.
+- API usage tracking.
+- API documentation.
+- Webhook subscriptions.
+
+### Webhooks
+
+Support events such as:
+
+- Page published.
+- Lead created.
+- Form submitted.
+- Funnel completed.
+- Conversion recorded.
+- Experiment completed.
+- Subscription updated.
+
+Use signed webhooks, retry mechanisms, delivery logs, and idempotency.
+
+Do not display an integration as connected until its credentials have been verified.
+
+---
+
+## MODULE 14: SUBSCRIPTION AND BILLING MANAGEMENT
+
+The application must function as a commercial SaaS business.
+
+### Subscription plans
+
+Create configurable plans:
+
+**Free**
+- Limited landing pages.
+- Basic templates.
+- Basic analytics.
+- Limited visitors.
+
+**Starter**
+- More landing pages.
+- Custom domains.
+- Basic funnels.
+- Lead management.
+
+**Professional**
+- Advanced funnels.
+- A/B testing.
+- Advanced analytics.
+- Marketing automation.
+- AI credits.
+
+**Agency**
+- Multiple client workspaces.
+- Team management.
+- White-label reports.
+- Higher usage limits.
+- Advanced integrations.
+
+**Enterprise**
+- Custom limits.
+- Advanced permissions.
+- Enterprise support.
+- Custom integrations.
+- Advanced security options.
+
+All plans must be editable by platform administrators.
+
+### Billing functionality
+
+- Monthly subscriptions.
+- Annual subscriptions.
+- Free trials.
+- Plan upgrades.
+- Plan downgrades.
+- Subscription cancellation.
+- Coupons.
+- Discounts.
+- Invoices.
+- Payment history.
+- Failed-payment handling.
+- Usage limits.
+- Renewal reminders.
+
+Use a payment-provider adapter architecture. Integrate selected payment providers through secure hosted checkout and verified webhooks.
+
+Never store raw payment-card details.
+
+---
+
+## MODULE 15: WHITE-LABEL AND AGENCY MANAGEMENT
+
+Allow agency subscriptions to have:
+
+- Custom branding.
+- Custom logos.
+- Custom colors.
+- Branded reports.
+- Custom client portal.
+- Multiple client workspaces.
+- Client permissions.
+- Agency-level analytics.
+- Client billing management.
+- Custom email branding.
+
+White-label features must respect subscription entitlements.
+
+---
+
+## MODULE 16: TEAM COLLABORATION
+
+Implement:
+
+- Team invitations.
+- Project assignments.
+- Page comments.
+- Design feedback.
+- Internal notes.
+- Approval workflows.
+- Page review.
+- Publishing permissions.
+- Activity feeds.
+- Notifications.
+- Audit logs.
+
+Support email and in-app notifications.
+
+---
+
+## MODULE 17: MEDIA LIBRARY
+
+Build a centralized media manager.
+
+Features:
+
+- Image uploads.
+- Video uploads.
+- File management.
+- Folder organization.
+- Search.
+- Tags.
+- Image previews.
+- Thumbnail generation.
+- Asset optimization.
+- File-size validation.
+- Storage usage tracking.
+- Reusable media.
+- Access control.
+
+Use object storage where configured.
+
+---
+
+## MODULE 18: REPORTS AND PDF EXPORT
+
+Use Laravel Unicode PDF.
+
+Create professional reports for:
+
+- Landing-page performance.
+- Funnel performance.
+- A/B testing.
+- Conversion statistics.
+- Lead generation.
+- Campaign performance.
+- Agency client reports.
+- Subscription invoices.
+
+Support multilingual PDF generation and Unicode font rendering.
+
+---
+
+## MODULE 19: NOTIFICATION CENTER
+
+Implement notifications for:
+
+- New leads.
+- New form submissions.
+- Funnel conversions.
+- Experiment completion.
+- Failed automations.
+- Domain verification.
+- SSL issues.
+- Subscription renewals.
+- Failed payments.
+- Team invitations.
+- Approval requests.
+
+Support configurable notification preferences.
+
+---
+
+## MODULE 20: INTERNAL PLATFORM OPERATIONS
+
+Create an optional platform operations module.
+
+Features:
+
+- Support tickets.
+- System health.
+- Queue monitoring.
+- Background-job monitoring.
+- Database health.
+- Storage usage.
+- API usage.
+- Error logs.
+- Platform announcements.
+- Maintenance mode.
+- Internal staff management.
+- Optional attendance integration.
+
+Keep this separate from customer-facing marketing modules.
+
+---
+
+# 7. MODULAR SYSTEM – CRITICAL REQUIREMENT
+
+This architecture is essential.
+
+Every major application module must be independently configurable.
+
+### Platform administrator controls
+
+Create a Module Management Center in Filament.
+
+The platform administrator should be able to:
+
+- Enable a module globally.
+- Disable a module globally.
+- View module dependencies.
+- View module descriptions.
+- Configure module settings.
+- View module usage.
+- View module health.
+- Assign modules to subscription plans.
+
+### Organization-level controls
+
+Organization administrators should be able to activate or deactivate eligible modules.
+
+For example:
+
+Organization A:
+- Landing Page Builder: ON
+- Funnel Builder: ON
+- A/B Testing: ON
+- CRM: ON
+- AI Assistant: OFF
+- Automation: OFF
+
+Organization B:
+- Landing Page Builder: ON
+- Funnel Builder: OFF
+- A/B Testing: OFF
+- CRM: ON
+- AI Assistant: ON
+- Automation: ON
+
+The application must adapt dynamically.
+
+### Technical implementation
+
+Create:
+
+- Modules table.
+- Module dependencies table.
+- Organization module settings.
+- Plan-module relationships.
+- Feature entitlement service.
+- Module activation service.
+- Module deactivation service.
+- Module access middleware.
+
+Each module should contain:
+
+- Module name.
+- Module slug.
+- Description.
+- Version.
+- Dependencies.
+- Default status.
+- Plan availability.
+- Configuration.
+- Permission requirements.
+
+### Important module behavior
+
+Disabling a module must:
+
+1. Hide its navigation items.
+2. Disable its routes.
+3. Block its API endpoints.
+4. Stop its scheduled jobs where appropriate.
+5. Prevent unauthorized access.
+6. Preserve existing customer data.
+7. Preserve historical reports.
+8. Allow safe reactivation.
+
+Do not delete customer data when a module is disabled.
+
+Do not allow users to activate modules that are not included in their subscription.
+
+Create a dependency validation system so that disabling a required module cannot silently break another module.
+
+---
+
+# 8. PUBLIC WEBSITE – COMPLETE MARKETING WEBSITE
+
+The application must include a professional public-facing website explaining the entire platform.
+
+The public website is an essential part of the business.
+
+Do not create only a login page.
+
+Build the following pages.
+
+### 8.1 Homepage
+
+Include:
+
+- Professional hero section.
+- Main headline.
+- Supporting description.
+- Get Started CTA.
+- Live product preview.
+- Landing-page builder preview.
+- Funnel builder preview.
+- A/B testing preview.
+- Feature highlights.
+- How it works.
+- Template showcase.
+- Analytics preview.
+- AI assistant preview.
+- Customer use cases.
+- Pricing overview.
+- Testimonials with clearly identified real or sample content.
+- FAQ.
+- Final CTA.
+- Complete footer.
+
+### 8.2 Features
+
+Create a dedicated feature overview page explaining all major modules.
+
+### 8.3 Landing Page Builder
+
+Show the editor, components, publishing, responsive editing, and templates.
+
+### 8.4 Funnel Builder
+
+Explain funnel creation, visual workflows, and conversion tracking.
+
+### 8.5 A/B Testing
+
+Explain experiments, variants, metrics, and optimization.
+
+### 8.6 Analytics
+
+Show how users monitor traffic and conversions.
+
+### 8.7 AI Marketing Assistant
+
+Explain AI-powered copywriting, page generation, and optimization.
+
+### 8.8 Templates
+
+Create a searchable public template gallery.
+
+### 8.9 Integrations
+
+Show available integrations and their connection status accurately.
+
+### 8.10 Pricing
+
+Create a dynamic pricing page connected to the actual plan database.
+
+### 8.11 Use Cases
+
+Create pages for:
+
+- Agencies.
+- E-commerce.
+- SaaS companies.
+- Digital marketers.
+- Consultants.
+- Coaches.
+- Education businesses.
+- Small businesses.
+- Enterprise teams.
+
+### 8.12 Resources
+
+Create:
+
+- Blog.
+- Documentation.
+- Tutorials.
+- Help center.
+- FAQs.
+- Changelog.
+- Product updates.
+
+### 8.13 Business pages
+
+Create:
+
+- About Us.
+- Contact Us.
+- Careers.
+- Privacy Policy.
+- Terms and Conditions.
+- Cookie Policy.
+- Refund Policy.
+- Affiliate Program (optional).
+
+All public pages must be responsive, SEO-friendly, and editable through the administration system where appropriate.
+
+---
+
+# 9. FILAMENT ADMINISTRATION DASHBOARD
+
+Build a professional Filament administration system.
+
+Create two clearly separated administration experiences.
+
+## A. Platform Administration
+
+The super administrator should see:
+
+**Dashboard widgets**
+- Total organizations.
+- Total users.
+- Active subscriptions.
+- Monthly recurring revenue.
+- New registrations.
+- Active landing pages.
+- Published funnels.
+- Active experiments.
+- Total leads.
+- Platform storage.
+- API usage.
+- AI usage.
+- Failed jobs.
+- System health.
+
+**Administration sections**
+1. Organizations.
+2. Users.
+3. Roles and permissions.
+4. Subscription plans.
+5. Subscriptions.
+6. Transactions.
+7. Modules.
+8. Module settings.
+9. Landing-page templates.
+10. Template marketplace.
+11. AI providers.
+12. AI usage.
+13. Integrations.
+14. Domain management.
+15. Support tickets.
+16. Notifications.
+17. Audit logs.
+18. System settings.
+19. Performance monitoring.
+20. Platform operations.
+
+## B. Organization Dashboard
+
+Each organization must have a dedicated dashboard.
+
+Display:
+
+- Active projects.
+- Total landing pages.
+- Published pages.
+- Active funnels.
+- Total visitors.
+- Total leads.
+- Conversion rate.
+- Active experiments.
+- Recent activity.
+- Team members.
+- Subscription usage.
+
+Organization navigation must only display modules available to that organization.
+
+---
+
+# 10. DATABASE ARCHITECTURE
+
+Design a normalized, scalable relational database.
+
+Create appropriate tables for:
+
+### Identity and tenancy
+- users
+- organizations
+- organization_users
+- workspaces
+- projects
+- roles
+- permissions
+- model_has_roles
+- model_has_permissions
+
+### Page builder
+- websites
+- landing_pages
+- page_versions
+- page_templates
+- page_components
+- reusable_sections
+- media_assets
+- custom_domains
+- domain_verifications
+
+### Funnel management
+- funnels
+- funnel_steps
+- funnel_connections
+- funnel_versions
+- funnel_visits
+- funnel_conversions
+
+### Experiments
+- experiments
+- experiment_variants
+- experiment_assignments
+- experiment_events
+- experiment_results
+
+### Analytics
+- analytics_events
+- visitor_sessions
+- page_views
+- conversion_events
+- attribution_records
+- traffic_sources
+
+### CRM
+- contacts
+- contact_tags
+- tags
+- contact_fields
+- contact_activities
+- pipelines
+- pipeline_stages
+- lead_assignments
+- form_submissions
+
+### Automation
+- workflows
+- workflow_triggers
+- workflow_actions
+- workflow_runs
+- workflow_logs
+
+### Integrations
+- integrations
+- integration_connections
+- api_keys
+- webhooks
+- webhook_deliveries
+
+### SaaS billing
+- plans
+- plan_features
+- subscriptions
+- invoices
+- payments
+- coupons
+- usage_records
+
+### Modular architecture
+- modules
+- module_dependencies
+- organization_modules
+- module_settings
+
+### Administration
+- notifications
+- audit_logs
+- support_tickets
+- system_settings
+
+Use UUIDs or ULIDs where appropriate.
+
+Add indexes, unique constraints, foreign keys, tenant-scoped uniqueness, and proper deletion strategies.
+
+Do not create one giant table for unrelated functionality.
+
+---
+
+# 11. SECURITY REQUIREMENTS
+
+Implement production-level security.
+
+Required:
+
+- Authentication.
+- Email verification.
+- Password reset.
+- Two-factor authentication.
+- Session management.
+- Role-based access control.
+- Tenant isolation.
+- CSRF protection.
+- XSS protection.
+- SQL injection prevention.
+- Secure file uploads.
+- API rate limiting.
+- Webhook signature verification.
+- Encrypted integration credentials.
+- Audit logs.
+- Secure custom-domain verification.
+- Signed preview links.
+- Secure export permissions.
+- Backup policies.
+
+Protect against SSRF in URL-import functionality.
+
+Use strict validation and sanitization for page-builder content.
+
+Never expose API credentials in frontend JavaScript.
+
+Never trust client-side permission checks.
+
+Implement security tests for tenant boundaries and unauthorized module access.
+
+---
+
+# 12. USER EXPERIENCE AND DESIGN SYSTEM
+
+Create a premium SaaS interface.
+
+Design direction:
+
+- Modern.
+- Minimal.
+- Professional.
+- Enterprise-ready.
+- Clean typography.
+- Excellent spacing.
+- Consistent component design.
+- Smooth interactions.
+- Accessible color contrast.
+- Light and dark modes.
+
+### Dashboard design
+
+Use:
+
+- Collapsible sidebar.
+- Top navigation.
+- Breadcrumbs.
+- Search.
+- Notification center.
+- Profile menu.
+- Organization switcher.
+- Workspace switcher.
+- Responsive tables.
+- Dashboard cards.
+- Charts.
+- Empty states.
+- Loading states.
+- Error states.
+
+### Visual page builder
+
+Give the editor a dedicated professional workspace:
+
+- Left panel: Elements and components.
+- Center: Page canvas.
+- Right panel: Properties and styling.
+- Top: Save, undo, redo, preview, publish.
+
+The page editor should feel like a professional commercial website builder.
+
+Avoid a generic CRUD-style appearance for the main editor.
+
+Ensure mobile responsiveness across the public website and administrative dashboard.
+
+---
+
+# 13. DEMO USER AND DEMONSTRATION ENVIRONMENT
+
+A complete demo environment is mandatory.
+
+Create a demo organization:
+
+**Organization:** Acme Growth Studio
+
+**Demo user:** demo@landingfunnel.test
+
+**Role:** Organization Owner
+
+Create a demo workspace with realistic sample content.
+
+### Demo data
+
+Include:
+
+- 5 landing pages.
+- 3 complete sales funnels.
+- 10 landing-page templates.
+- 2 active A/B experiments.
+- Multiple experiment variants.
+- 100 sample contacts.
+- Multiple lead pipelines.
+- Sample form submissions.
+- Sample analytics events.
+- Sample conversion records.
+- Sample marketing workflows.
+- Sample campaign data.
+- Sample reports.
+
+Populate dashboards with coherent, internally consistent sample metrics.
+
+Clearly label seeded analytics as demonstration data.
+
+### Demo login
+
+Implement a dedicated demo seeding command.
+
+Example:
+
+`php artisan demo:seed`
+
+Generate demo credentials only in explicitly enabled development, staging, or demo environments.
+
+Document the credentials in README.md when the demo environment is enabled.
+
+Do not create a publicly accessible super-admin account with a default password.
+
+Provide a demo reset command.
+
+Ensure demo data is isolated from real customer data.
+
+Allow visitors to explore the application in a controlled demo mode.
+
+---
+
+# 14. MULTILINGUAL SUPPORT
+
+Prepare the application for international customers.
+
+Support at minimum:
+
+- English.
+- Bengali.
+- Arabic.
+- Hindi.
+
+Implement:
+
+- Translation files.
+- Language switcher.
+- Localized public pages.
+- Localized dashboard labels.
+- Multilingual landing pages.
+- Unicode slugs.
+- RTL layouts.
+- Localized date and number formatting.
+- Localized PDF reports.
+
+Use Laravel Universal Slug and Unicode PDF appropriately.
+
+---
+
+# 15. EMAIL AND COMMUNICATION
+
+Implement a configurable email system.
+
+Support SMTP and compatible email providers through an adapter architecture.
+
+Email templates should include:
+
+- Welcome email.
+- Email verification.
+- Password reset.
+- Team invitation.
+- New lead notification.
+- Form submission notification.
+- Subscription confirmation.
+- Invoice notification.
+- Failed payment notification.
+- Trial expiration.
+- Subscription renewal.
+- Workflow emails.
+
+Allow administrators to customize email templates.
+
+Maintain sending logs and error information.
+
+---
+
+# 16. PERFORMANCE AND SCALABILITY
+
+Performance is a critical requirement.
+
+Implement:
+
+- Database indexing.
+- Query optimization.
+- Eager loading.
+- Redis caching.
+- Queue-based background jobs.
+- Optimized media delivery.
+- Lazy loading.
+- Pagination.
+- Aggregated analytics.
+- Cached dashboard statistics.
+- Efficient event processing.
+- Queue retry strategies.
+- Database connection optimization.
+
+Use Laravel Drutogoti to help identify performance bottlenecks.
+
+Avoid running expensive analytics queries on every dashboard request.
+
+Process high-volume visitor events asynchronously where appropriate.
+
+Keep page-rendering and published-page delivery fast.
+
+---
+
+# 17. TESTING AND QUALITY ASSURANCE
+
+Do not consider the application complete simply because it runs.
+
+Write meaningful automated tests.
+
+### Unit tests
+
+Test:
+- Module services.
+- Permission services.
+- Conversion calculations.
+- Funnel logic.
+- Experiment allocation.
+- Subscription entitlement logic.
+- Slug generation.
+- AI service integration.
+
+### Feature tests
+
+Test:
+- Registration.
+- Login.
+- Organization creation.
+- Workspace creation.
+- Page creation.
+- Page publishing.
+- Funnel creation.
+- Form submissions.
+- Lead creation.
+- A/B experiment execution.
+- Subscription management.
+- Module activation.
+- API authentication.
+
+### Security tests
+
+Test:
+- Cross-tenant access prevention.
+- Unauthorized administration.
+- Module access restrictions.
+- Invalid webhook signatures.
+- Malicious uploads.
+- Unauthorized page publishing.
+- Invalid domain ownership.
+
+### Browser tests
+
+Verify:
+- Page builder interactions.
+- Drag-and-drop.
+- Responsive previews.
+- Funnel visualization.
+- Publishing workflow.
+- Dashboard navigation.
+- Form submissions.
+
+Use Pest or PHPUnit and appropriate browser testing tools.
+
+Do not leave critical features untested.
+
+---
+
+# 18. DOCUMENTATION AND README.MD
+
+Create a complete professional README.md.
+
+The README must explain the entire application to prospective customers and developers.
+
+Include:
+
+1. Application overview.
+2. Product vision.
+3. Core features.
+4. Complete module list.
+5. Feature explanations.
+6. Public website pages.
+7. User types.
+8. Permission architecture.
+9. Multi-tenant architecture.
+10. System requirements.
+11. Technology stack.
+12. Required packages.
+13. Installation instructions.
+14. Environment configuration.
+15. Database setup.
+16. Migration commands.
+17. Seeder commands.
+18. Demo login instructions.
+19. Queue configuration.
+20. Scheduler configuration.
+21. Storage configuration.
+22. AI provider setup.
+23. Custom domain configuration.
+24. Subscription configuration.
+25. API documentation.
+26. Webhook documentation.
+27. Testing instructions.
+28. Deployment instructions.
+29. Backup and restoration.
+30. Troubleshooting.
+31. Security configuration.
+32. Future roadmap.
+
+Also create:
+
+- `docs/ARCHITECTURE.md`
+- `docs/DATABASE.md`
+- `docs/MODULES.md`
+- `docs/USER-ROLES.md`
+- `docs/API.md`
+- `docs/DEPLOYMENT.md`
+- `docs/SECURITY.md`
+- `docs/PACKAGE-INTEGRATION.md`
+- `docs/DEMO-SETUP.md`
+
+The README must accurately describe features that are actually implemented.
+
+Never advertise unfinished functionality as operational.
+
+---
+
+# 19. DEVELOPMENT EXECUTION PLAN
+
+Do not attempt to build everything in one uncontrolled coding pass.
+
+Work through the following phases.
+
+### Phase 1 – Project foundation
+
+- Inspect the existing repository.
+- Check PHP and Composer versions.
+- Resolve Laravel and Filament versions.
+- Install dependencies.
+- Configure environment.
+- Establish architecture.
+- Create database structure.
+- Set up authentication.
+
+Deliverable: A working Laravel and Filament foundation.
+
+### Phase 2 – Multi-tenancy and permissions
+
+- Organizations.
+- Workspaces.
+- Projects.
+- User memberships.
+- Roles.
+- Permissions.
+- Tenant isolation.
+
+Deliverable: A functional multi-organization application.
+
+### Phase 3 – Modular architecture
+
+- Module registry.
+- Module dependencies.
+- Feature entitlements.
+- Platform-level controls.
+- Tenant-level controls.
+- Module middleware.
+
+Deliverable: Fully functional modular system.
+
+### Phase 4 – Page builder
+
+- Visual editor.
+- Components.
+- Templates.
+- Responsive previews.
+- Page versioning.
+- Publishing.
+
+Deliverable: Working landing-page builder.
+
+### Phase 5 – Website and funnel builder
+
+- Multi-page website management.
+- Funnel editor.
+- Funnel steps.
+- Conditional paths.
+- Conversion tracking.
+
+Deliverable: Complete website and funnel creation system.
+
+### Phase 6 – A/B testing and analytics
+
+- Experiment engine.
+- Variant allocation.
+- Event collection.
+- Conversion calculation.
+- Analytics dashboard.
+- Experiment reports.
+
+Deliverable: Working experimentation platform.
+
+### Phase 7 – CRM and automation
+
+- Lead capture.
+- Contact management.
+- Pipelines.
+- Form builder.
+- Workflow builder.
+- Email integration.
+
+Deliverable: Complete lead management and automation.
+
+### Phase 8 – AI and integrations
+
+- Laravel AI Hub.
+- AI content assistant.
+- Optional AI catalog integration.
+- Marketing integrations.
+- API.
+- Webhooks.
+
+Deliverable: Connected AI-powered marketing platform.
+
+### Phase 9 – Commercial SaaS system
+
+- Plans.
+- Subscriptions.
+- Billing.
+- Usage limits.
+- Coupons.
+- Invoices.
+- White-label capabilities.
+
+Deliverable: Monetizable SaaS platform.
+
+### Phase 10 – Public marketing website
+
+- Homepage.
+- Features.
+- Pricing.
+- Templates.
+- Use cases.
+- Integrations.
+- Documentation.
+- Contact pages.
+
+Deliverable: Complete commercial website.
+
+### Phase 11 – Administration and operations
+
+- Platform dashboard.
+- Organization dashboard.
+- System settings.
+- Notifications.
+- Support.
+- Audit logs.
+- Performance monitoring.
+
+Deliverable: Complete administrative system.
+
+### Phase 12 – Testing and production readiness
+
+- Automated testing.
+- Security testing.
+- Performance optimization.
+- Demo seeding.
+- Documentation.
+- Deployment preparation.
+
+Deliverable: Production-ready application.
+
+---
+
+# 20. STRICT DEVELOPMENT RULES
+
+Follow these instructions throughout development.
+
+1. Do not build a simple prototype.
+2. Do not create a static dashboard with fake functionality.
+3. Do not use buttons that do nothing.
+4. Do not create empty pages just to make navigation look complete.
+5. Do not use hardcoded analytics as actual customer data.
+6. Do not create fake API integrations.
+7. Do not expose one tenant's data to another.
+8. Do not ignore permissions.
+9. Do not tightly couple all modules.
+10. Do not delete data when disabling a module.
+11. Do not introduce duplicate admin frameworks.
+12. Do not ignore database performance.
+13. Do not leave critical functions as TODO comments.
+14. Do not publish AI content without user approval.
+15. Do not compromise security for convenience.
+16. Do not use placeholder content in the final production experience.
+17. Do not stop after generating migrations or frontend designs.
+18. Do not claim a feature is finished until it has been implemented and tested.
+
+Every module must have its own:
+- Routes.
+- Controllers or Livewire components.
+- Services.
+- Models.
+- Policies.
+- Migrations.
+- Tests.
+- Configuration.
+- Documentation.
+
+Use service classes and clear domain boundaries.
+
+Follow Laravel conventions and maintain clean, reusable code.
+
+---
+
+# 21. FINAL ACCEPTANCE CRITERIA
+
+The application will be considered complete only when the following conditions are met.
+
+| Area | Acceptance requirement |
+|---|---|
+| Laravel | Application runs correctly |
+| Filament | Functional administration |
+| Multi-tenancy | Independent organizations |
+| Permissions | Role-based authorization |
+| Modules | Independent activation/deactivation |
+| Page builder | Working drag-and-drop editor |
+| Website builder | Multiple published pages |
+| Funnels | Working visual funnel system |
+| A/B testing | Real variant allocation and tracking |
+| Analytics | Real event-based reports |
+| CRM | Functional lead management |
+| Automation | Executable workflows |
+| AI | Configurable provider integration |
+| Templates | Usable template library |
+| Domains | Domain verification and publishing |
+| Billing | Subscription and entitlement management |
+| API | Authenticated and documented endpoints |
+| Public website | Complete marketing website |
+| Demo | Working seeded demo organization |
+| PDF | Functional multilingual exports |
+| Security | Tenant isolation and permission tests |
+| Performance | Optimized database and background processing |
+| Documentation | Complete README and technical docs |
+
+---
+
+# 22. FINAL INSTRUCTION TO THE AI CODING AGENT
+
+You are responsible for delivering the complete application, not just suggesting an architecture.
+
+Start by inspecting the existing project directory and understanding its current state.
+
+If the repository is empty, initialize the application using the specified technology stack.
+
+If an existing project is present, preserve useful existing code and avoid unnecessary destructive changes.
+
+First create a detailed implementation checklist and architecture documentation. Then immediately begin implementing the application.
+
+Work phase by phase, but do not stop after each phase to ask for permission to continue.
+
+Verify dependencies before installation, run migrations, seed demo data, execute tests, fix errors, and validate the complete application.
+
+Whenever a feature depends on an external API or provider, implement the actual integration adapter, configuration screen, validation, error handling, and setup instructions. If credentials are unavailable, provide a fully functional sandbox or test mode rather than pretending the integration is connected.
+
+**The ultimate objective:**
+
+Build a complete, modular, multi-tenant SaaS business platform for landing-page creation, sales funnel management, A/B testing, lead generation, marketing automation, and conversion optimization.
+
+It must have:
+
+- A complete public commercial website.
+- A professional Filament administration system.
+- A powerful customer dashboard.
+- A functional drag-and-drop landing-page editor.
+- A visual sales funnel builder.
+- A genuine A/B testing engine.
+- Real analytics and conversion tracking.
+- Complete CRM and lead management.
+- AI-powered marketing tools.
+- Subscription and billing management.
+- Multi-user and multi-organization support.
+- Independent modules that businesses can activate or deactivate.
+- A working demo organization and demo user.
+- Complete installation and business documentation.
+
+Think like a SaaS founder building a long-term international software business, not a developer completing a small academic project.
+
+**Prioritize functionality, security, modularity, maintainability, performance, user experience, and commercial readiness.**

@@ -1,0 +1,15 @@
+REPO_NAME:
+landing-page-funnel-builder-ab-testing-saas
+
+GITHUB_DESCRIPTION:
+Landing Page Builder & Sales Funnel Software with A/B Testing — create high-converting landing pages, visual funnels, sticky A/B experiments, lead CRM, marketing automation & AI copy. Laravel Filament multi-tenant SaaS for agencies & marketers. Conversion optimization platform. By Imran Ahmed | imrandev.bd
+
+CHAR_COUNT: 327
+
+ALTERNATES:
+landing-page-and-funnel-builder-ab-testing
+laravel-landing-page-builder-ab-test
+sales-funnel-builder-conversion-saas
+
+TOPICS:
+landing-page-builder, sales-funnel, ab-testing, conversion-optimization, lead-generation, marketing-automation, page-builder, laravel, filament, saas, crm
